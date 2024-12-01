@@ -27,7 +27,10 @@ pipeline {
                 dir("${env.WORKSPACE}/ch03_06"){
                      sh('pwd')
                      sh('./algorithm.sh')
+                    archiveArtifacts allowEmptyArchive: true, artifacts: '*.txt', fingerprint: true, onlyIfSuccessful: true 
                 }
+                
+
             }
         }
 
