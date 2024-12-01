@@ -27,7 +27,7 @@ pipeline {
         stage('Relative path') {
             steps {
                 dir("${env.WORKSPACE}/Ch03/03_03-run-scripts-from-the-pipeline"){
-                    sh("./fibonacci.sh ${env.NUMBER}")
+                    sh("./fibonacci.sh ${params.NUMBER}")
                 }
                 
             }
