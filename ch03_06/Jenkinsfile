@@ -29,10 +29,16 @@ pipeline {
                     sh('pwd')
                     sh('./algorithm.sh')
                     sh("cp ./report.txt ${BUILD_NUMBER}.txt")
-                    archiveArtifacts allowEmptyArchive: true, artifacts: '*.txt', fingerprint: true, onlyIfSuccessful: true 
+                    
                 }
                 
 
+            }
+        }
+        post{
+            always{
+                  echo 'archive artifacts'
+                  archiveArtifacts allowEmptyArchive: true, artifacts: '*.txt', fingerprint: true, onlyIfSuccessful: true 
             }
         }
 
