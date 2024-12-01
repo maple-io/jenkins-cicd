@@ -41,7 +41,7 @@ pipeline {
             always{
                   echo 'archive artifacts'
                   dir("${env.WORKSPACE}/ch03_06"){
-                    archiveArtifacts allowEmptyArchive: true, artifacts: "${BUILD_NUMBER}.txt.txt", fingerprint: true, onlyIfSuccessful: true 
+                    archiveArtifacts allowEmptyArchive: true, artifacts: "${BUILD_NUMBER}.txt", fingerprint: true, onlyIfSuccessful: true 
 
                   }
                   
