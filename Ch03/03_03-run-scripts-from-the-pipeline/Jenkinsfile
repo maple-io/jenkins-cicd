@@ -19,7 +19,7 @@ pipeline {
                 sh('pwd && ls')
                 sh('cd ./Ch03/03_03-run-scripts-from-the-pipeline')
                 sh('pwd && ls')
-                sh('chmod +x ./scripts/fibonacci.sh')
+                sh('cd ./Ch03/03_03-run-scripts-from-the-pipeline && chmod +x ./scripts/fibonacci.sh')
             }
         }
         stage('Relative path') {
