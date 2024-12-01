@@ -18,9 +18,16 @@ pipeline {
             steps {
                 dir("${env.WORKSPACE}/ch03_06"){
                      sh('pwd && ls')
-                     sh('chmod +x ./algorithm.sh.sh')
+                     sh('chmod +x ./algorithm.sh')
                 }
-
+            }
+        }
+        stage('Test') {
+            steps {
+                dir("${env.WORKSPACE}/ch03_06"){
+                     sh('pwd')
+                     sh('./algorithm.sh')
+                }
             }
         }
 
