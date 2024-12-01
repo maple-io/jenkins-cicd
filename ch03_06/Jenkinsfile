@@ -39,7 +39,11 @@ pipeline {
     post{
             always{
                   echo 'archive artifacts'
-                  archiveArtifacts allowEmptyArchive: true, artifacts: "${env.WORKSPACE}/ch03_06/*.txt", fingerprint: true, onlyIfSuccessful: true 
+                  dir("${env.WORKSPACE}/ch03_06"){
+                    archiveArtifacts allowEmptyArchive: true, artifacts: "*.txt", fingerprint: true, onlyIfSuccessful: true 
+
+                  }
+                  
             }
     }
 }
