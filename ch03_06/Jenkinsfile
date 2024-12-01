@@ -24,9 +24,11 @@ pipeline {
         }
         stage('Test') {
             steps {
+                echo "BUILD_NUMBER = $BUILD_NUMBER"
                 dir("${env.WORKSPACE}/ch03_06"){
-                     sh('pwd')
-                     sh('./algorithm.sh')
+                    sh('pwd')
+                    sh('./algorithm.sh')
+                    sh("cp ./report.txt ${BUILD_NUMBER}.txt")
                     archiveArtifacts allowEmptyArchive: true, artifacts: '*.txt', fingerprint: true, onlyIfSuccessful: true 
                 }
                 
