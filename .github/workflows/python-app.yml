@@ -50,9 +50,9 @@ jobs:
     - name: pip module verison
       run: |
         pip show fastapi
-        pip show flask8
+        pip show flake8
         pip show pytest
-        
+
 
 
 
