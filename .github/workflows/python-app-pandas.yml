@@ -48,4 +48,11 @@ jobs:
       working-directory: check_pandas
       run: |
         pwd
-        pytest
+        python -m pytest --verbose --junit-xml=junit.xml
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v3
+      if: success() || failure() # always run even if the previous step fails
+      with:
+        report_paths: '**/junit.xml'
+        detailed_summary: true
+        include_passed: true
