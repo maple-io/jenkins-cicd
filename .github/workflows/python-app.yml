@@ -47,3 +47,12 @@ jobs:
         report_paths: '**/junit.xml'
         detailed_summary: true
         include_passed: true
+    - name: pip module verison
+      run: |
+        pip show fastapi
+        pip show flask8
+        pip show pytest
+        
+
+
+
