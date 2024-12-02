@@ -15,10 +15,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  integration:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python 3.10
