@@ -17,6 +17,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
 
     steps:
     - uses: actions/checkout@v4
@@ -37,4 +39,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        
+        python -m pytest --verbose --junit-xml=junit.xml
+        
