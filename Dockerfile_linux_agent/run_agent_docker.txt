@@ -1,0 +1,36 @@
+1.enter dockerfile folder
+docker build -t jenkins-linux-agent .
+
+2.docker images 
+to check docker iamge is ready
+
+3.in Jenkins controller 
+setup new node with name linux-agent
+then when ready, get agent_secret
+
+4.in jenkins controller -> security
+JNLP
+enable agent tcp port (fix or random)
+default is disable
+
+5.in macos docker desktop, add shared folder ~/jenkins-home as shared. then re-start docker desktop
+
+6.
+docker run -d \
+    --name jenkins-linux-agent \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /Users/ceyang/jenkins-home:/home/jenkins \
+    jenkins-linux-agent \
+    -url http://local_jenkins:8080 <agent_secret> linux-agent
+
+
+7. docker logs jenkins-linux-agent
+can check logs
+
+8. tear down docker container  
+docker stop jenkins-linux-agent
+docker rm jenkins-linux-agent
+
+9.remove docker image
+docker rmi -f <image-id>
+
