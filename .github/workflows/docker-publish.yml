@@ -27,6 +27,8 @@ env:
 jobs:
   integration:
     uses: ./.github/workflows/python-app-integration.yml
+    permissions:
+      contents: read
     
   publish:
     needs: [integration]
