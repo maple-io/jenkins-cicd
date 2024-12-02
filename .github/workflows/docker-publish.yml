@@ -113,6 +113,9 @@ jobs:
   create-release:
     needs: [integration]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Create Release
         uses: actions/create-release@v1
