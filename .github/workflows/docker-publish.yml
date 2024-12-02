@@ -26,7 +26,7 @@ env:
 
 jobs:
   integration:
-    uses: ./.github/workflows/python-app-integration.yml@main
+    uses: ./.github/workflows/python-app-integration.yml
     
   publish:
     needs: [integration]
