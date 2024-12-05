@@ -17,8 +17,10 @@ pipeline {
                     sh 'python3 -m venv venv'
                     sh 'pwd'
                     sh 'ls'
-                    sh 'venv/bin/pip3 --version'
-                    sh 'venv/bin/pip3 install --upgrade --requirement requirements.txt'
+                    sh './venv/bin/pip3 --version'
+                    sh './venv/bin/pip3 install --upgrade --requirement requirements.txt'
+
+                 
                 }
             }
         }
