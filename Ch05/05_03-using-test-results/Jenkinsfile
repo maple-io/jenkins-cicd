@@ -12,7 +12,7 @@ pipeline {
         stage('Requirements') {
             steps {
                 dir("${env.WORKSPACE}/Ch05/05_03-using-test-results"){
-                    sh 'hostnamectl'
+                    sh 'hostname'
                     sh 'sudo apt install python3-pip -y'
                     sh 'python3 --version'
                     sh 'python3 -m venv venv'
