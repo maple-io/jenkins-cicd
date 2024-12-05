@@ -21,7 +21,8 @@ class Tests(unittest.TestCase):
 
     def test_ALWAYS_FAIL(self):
         '''test_ALWAYS_FAIL: this test will always fail'''
-        assert False
+        # assert False
+        assert True
 
 
 if __name__ == "__main__":

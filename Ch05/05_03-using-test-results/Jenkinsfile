@@ -8,11 +8,20 @@ pipeline {
     }
 
     stages {
+
         stage('Requirements') {
             steps {
                 dir("${env.WORKSPACE}/Ch05/05_03-using-test-results"){
+                    sh 'hostnamectl'
+                    sh 'sudo apt install python3-pip -y'
+                    sh 'python3 --version'
                     sh 'python3 -m venv venv'
-                    sh './venv/bin/pip install --upgrade --requirement requirements.txt'
+                    sh 'pwd'
+                    sh 'ls'
+                    sh './venv/bin/pip3 --version'
+                    sh './venv/bin/pip3 install --upgrade --requirement requirements.txt'
+
+                 
                 }
             }
         }
@@ -45,6 +54,7 @@ pipeline {
                 echo "Deploy the application in this step..."
             }
         }
+
     }
 
     post {
@@ -55,6 +65,10 @@ pipeline {
 
             publishCoverage adapters: [cobertura('**/coverage.xml')],
                 sourceFileResolver: sourceFiles('STORE_LAST_BUILD')
+            
+
+                cleanWs()
+
         }
     }
 }
