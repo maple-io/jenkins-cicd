@@ -15,8 +15,8 @@ pipeline {
                     sh 'sudo apt install python3-pip -y'
                     sh 'python3 --version'
                     sh 'python3 -m venv venv'
-                    sh 'pip install --upgrade --requirement requirements.txt'
-                    sh 'cd venv && source bin/activate && pip install --upgrade --requirement requirements.txt'
+                    
+                    sh 'venv/bin/pip install --upgrade --requirement requirements.txt'
                 }
             }
         }
