@@ -8,11 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
+
         stage('Requirements') {
             steps {
                 dir("${env.WORKSPACE}/Ch05/05_03-using-test-results"){
@@ -59,7 +55,11 @@ pipeline {
             }
         }
     }
-
+    stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
     post {
         always {
             junit allowEmptyResults: true, testResults: '**/pytest_junit.xml'
