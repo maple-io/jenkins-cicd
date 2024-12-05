@@ -8,6 +8,11 @@ pipeline {
     }
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
         stage('Requirements') {
             steps {
                 dir("${env.WORKSPACE}/Ch05/05_03-using-test-results"){
