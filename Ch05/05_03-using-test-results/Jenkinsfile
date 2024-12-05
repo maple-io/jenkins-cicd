@@ -54,12 +54,9 @@ pipeline {
                 echo "Deploy the application in this step..."
             }
         }
+
     }
-    stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
+
     post {
         always {
             junit allowEmptyResults: true, testResults: '**/pytest_junit.xml'
@@ -68,6 +65,11 @@ pipeline {
 
             publishCoverage adapters: [cobertura('**/coverage.xml')],
                 sourceFileResolver: sourceFiles('STORE_LAST_BUILD')
+            
+       
+            cleanWs()
+            
+        }
         }
     }
 }
